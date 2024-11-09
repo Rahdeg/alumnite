@@ -64,11 +64,11 @@ export const ViewUserCardWrapper = ({ id }: ViewUserCardWrapperProps) => {
                 {
                     !user.profileImage ? (
                         <div className=" ">
-                            <Image src="https://via.placeholder.com/150" width={250} height={250} alt="Message image" className=" rounded-md object-contain size-full" />
+                            <Image src="https://via.placeholder.com/150" width={150} height={150} alt="Message image" className=" rounded-md object-contain size-full" />
                         </div>
                     ) : (
                         <div className=" ">
-                            <Image src={user.profileImage} width={250} height={250} alt="Message image" className=" rounded-md object-contain size-full" />
+                            <Image src={user.profileImage} width={150} height={150} alt="Message image" className=" rounded-md object-contain size-full" />
                         </div>
                     )
                 }

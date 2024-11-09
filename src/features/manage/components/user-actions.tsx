@@ -3,7 +3,6 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigge
 import { PencilIcon, TrashIcon } from "lucide-react";
 import { useConfirm } from "@/hooks/use-confirm";
 import useUserStore from "@/features/store/use-store";
-import { useState } from "react";
 import { useEditUserModal } from "../hooks/use-edit-user-modal";
 
 interface TaskActionProps {
@@ -14,7 +13,6 @@ interface TaskActionProps {
 export const UserAction = ({ id, children }: TaskActionProps) => {
 
 
-    const [isLoading, setIsLoading] = useState(false);
 
     const { open } = useEditUserModal()
 
@@ -28,11 +26,11 @@ export const UserAction = ({ id, children }: TaskActionProps) => {
     )
 
     const onDelete = async () => {
-        setIsLoading(true);
+
         const ok = await confirmDelete();
         if (!ok) return;
         removeUser(id)
-        setIsLoading(false);
+
     }
 
 
@@ -51,7 +49,7 @@ export const UserAction = ({ id, children }: TaskActionProps) => {
                             Edit Task
                         </DropdownMenuItem>
 
-                        <DropdownMenuItem onClick={onDelete} disabled={isLoading} className=" text-amber-700 focus:text-amber-700 font-medium p-[10px]">
+                        <DropdownMenuItem onClick={onDelete} className=" text-amber-700 focus:text-amber-700 font-medium p-[10px]">
                             <TrashIcon className=" size-4 mr-2 stroke-2" />
                             Delete Task
                         </DropdownMenuItem>

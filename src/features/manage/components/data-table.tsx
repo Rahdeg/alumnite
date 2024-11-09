@@ -48,7 +48,8 @@ export function DataTable<TData, TValue>({
     )
     const [ConfirmDialog, confirm] = useConfirm(
         "Are you sure",
-        "You are about to perform a bulk delete"
+        "You are about to perform a bulk delete",
+        "destructive"
     )
     const [rowSelection, setRowSelection] = React.useState({})
     const table = useReactTable({
