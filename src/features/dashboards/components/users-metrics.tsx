@@ -17,30 +17,30 @@ export const UsersMetrics = () => {
     const inActiveUser = users.filter((user) => user.status !== "Active").length;
 
     return (
-        <div className=' flex flex-col lg:flex-row items-center gap-y-3 justify-between'>
+        <div className=' flex flex-col lg:flex-row items-center gap-y-3  w-full lg:w-auto gap-x-4'>
 
-            <div className=' flex items-center justify-start gap-x-3'>
-                <Button size="me" className=' font-bold text-base bg-blue-900 hover:bg-blue-900/70'>
+            <div className=' flex flex-col lg:flex-row items-center justify-start gap-x-3 gap-y-2 w-full '>
+                <Button size="lg" className=' font-bold text-base bg-blue-900 hover:bg-blue-900/70 w-full lg:w-auto '>
                     <Users className=' size-8 mr-1 text-base font-bold' />
                     Users ({totalUsers})
                 </Button>
-                <Button size="me" className=' font-bold text-base   bg-emerald-500 hover:bg-emerald-500/70'>
+                <Button size="lg" className=' font-bold text-base   bg-emerald-500 hover:bg-emerald-500/70 w-full lg:w-auto' >
                     <Activity className=' size-8 mr-1 text-base font-bold' />
                     Active ({activeUser})
                 </Button>
-                <Button size="me" className=' font-bold text-base text-black   bg-[#EBF5FF] hover:bg-[#EBF5FF]/70'>
+                <Button size="lg" className=' font-bold text-base text-black   bg-[#EBF5FF] hover:bg-[#EBF5FF]/70 w-full lg:w-auto'>
                     <PanelTopInactive className=' size-8 mr-1 text-base font-bold' />
                     Inactive ({inActiveUser})
                 </Button>
-
+                <div className=' flex items-center w-full mt-5 lg:mt-0 '>
+                    <Button variant="default" size="lg" onClick={open} className='font-bold text-base    bg-blue-900 hover:bg-blue-900/70 w-full lg:w-auto'>
+                        <Plus className=' size-4 mr-1' />
+                        Add User
+                    </Button>
+                </div>
 
             </div>
-            <div className=' flex items-center '>
-                <Button variant="default" size="me" onClick={open} className='font-bold text-base    bg-blue-900 hover:bg-blue-900/70'>
-                    <Plus className=' size-4 mr-1' />
-                    Add User
-                </Button>
-            </div>
+
         </div>
 
 

@@ -4,7 +4,7 @@ import React from 'react'
 
 const Homepage = () => {
     return (
-        <div className='max-w-screen-2xl mx-auto w-full pb-10 -mt-32 '>
+        <div className='max-w-screen-2xl mx-auto w-full pb-10 -mt-36 '>
             <UsersMetrics />
             <UserListCard />
         </div>

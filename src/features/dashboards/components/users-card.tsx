@@ -52,7 +52,7 @@ export const UserCard = ({ data }: UserCardProps) => {
                 isLive={data.status === "Active" ? true : false}
                 username={data.name}
             />
-            <div className='flex  items-start justify-between'>
+            <div className='flex flex-col  items-start gap-y-2'>
                 <div className="flex gap-x-3">
                     <UserAvatar
                         username={data.name}
@@ -63,7 +63,7 @@ export const UserCard = ({ data }: UserCardProps) => {
                         <p className="truncate font-semibold hover:text-blue-500 capitalize">
                             {data.name}
                         </p>
-                        <p className=" text-muted-foreground">
+                        <p className=" text-muted-foreground truncate">
                             {data.email}
                         </p>
 
