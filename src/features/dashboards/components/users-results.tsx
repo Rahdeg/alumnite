@@ -11,7 +11,7 @@ export const UsersResult = () => {
     <div>
       {data.length === 0 && (
         <div className="text-muted-foreground text-sm">
-          No user found
+          No user at the moment: click the add new user button to add a User
         </div>
       )}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4">
@@ -25,3 +25,4 @@ export const UsersResult = () => {
     </div>
   )
 }
+

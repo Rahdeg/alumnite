@@ -1,5 +1,5 @@
 "use client"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Loader } from "lucide-react";
 import useUserStore from "@/features/store/use-store";
 import Image from "next/image";
@@ -27,11 +27,10 @@ const roleConfig = {
 
 
 interface ViewUserCardWrapperProps {
-    onCancel: () => void;
     id: string;
 }
 
-export const ViewUserCardWrapper = ({ onCancel, id }: ViewUserCardWrapperProps) => {
+export const ViewUserCardWrapper = ({ id }: ViewUserCardWrapperProps) => {
 
 
 

@@ -20,7 +20,7 @@ const Avatar: React.FC<AvatarProps> = ({ name, profileImage }) => {
             const fileUrl = URL.createObjectURL(profileImage);
             setImageSrc(fileUrl);
 
-            console.log({ fileUrl });
+
 
             // Cleanup function to release memory
             return () => {
@@ -35,7 +35,7 @@ const Avatar: React.FC<AvatarProps> = ({ name, profileImage }) => {
         }
     }, [profileImage]);
 
-    console.log({ imageSrc });
+
 
     return (
         <div className={cn("size-10 relative rounded-md overflow-hidden")}>

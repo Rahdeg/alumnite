@@ -66,7 +66,7 @@ export const EditUserForm = ({ onCancel, initialValues }: EditUserFormProps) => 
             status: values.status ? Status.Active : Status.Inactive,
         }
 
-        console.log({ finalValues })
+
 
         editUser(initialValues.id, finalValues)
         setIsLoading(false);

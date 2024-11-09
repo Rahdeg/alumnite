@@ -48,7 +48,7 @@ export const UserCard = ({ data }: UserCardProps) => {
         <div className="h-full w-full space-y-4 bg-[#B0D1EA] p-2 rounded-md" onClick={() => open(data.id)}>
             <Thumbnail
                 src={data.profileImage ? data.profileImage : ""}
-                fallback={data.name}
+                fallback={""}
                 isLive={data.status === "Active" ? true : false}
                 username={data.name}
             />

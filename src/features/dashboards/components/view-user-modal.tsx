@@ -12,7 +12,7 @@ export const ViewUserModal = () => {
         <ResponsiveModal open={!!userId} onOpenChange={close} >
             {
                 userId && (
-                    <ViewUserCardWrapper id={userId} onCancel={close} />
+                    <ViewUserCardWrapper id={userId} />
                 )
             }
 

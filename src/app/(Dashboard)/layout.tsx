@@ -10,7 +10,7 @@ type Props = {
 
 const DashboardLayout = ({ children }: Props) => {
     return (
-        <>
+        <div suppressHydrationWarning={true}>
             <CreateUserModal />
             <EditUserModal />
             <ViewUserModal />
@@ -19,7 +19,7 @@ const DashboardLayout = ({ children }: Props) => {
                 {children}
             </main>
 
-        </>
+        </div>
     )
 }
 

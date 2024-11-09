@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
+"use client";
 
 import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
@@ -117,7 +118,6 @@ const useUserStore = create<UserStore>()(
       name: "users-storage",
       storage: createJSONStorage(() => localStorage),
       onRehydrateStorage: () => (state) => {
-        // Ensure `initialUsers` are set if no persisted data is found
         if (state) state.initializeUsers();
       },
     }

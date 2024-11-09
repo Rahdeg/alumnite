@@ -67,7 +67,7 @@ export const CreateUserForm = ({ onCancel }: CreateUserFormProps) => {
             id: generateId(),
         }
 
-        console.log({ finalValues })
+
 
         addUser(finalValues)
         setIsLoading(false);
