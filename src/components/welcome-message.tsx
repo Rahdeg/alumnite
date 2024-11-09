@@ -1,8 +1,12 @@
 "use client"
+import { usePathname } from 'next/navigation'
 import React from 'react'
 
 const WelcomeMsg = () => {
 
+    const pathname = usePathname();
+
+    const manageRoute = pathname === "/manage";
 
     return (
         <div className=' space-y-2 mb-4'>
@@ -10,7 +14,8 @@ const WelcomeMsg = () => {
                 Welcome Back Admin 👋🏾
             </h2>
             <p className=' text-sm lg:text-base text-[#68DBFF]'>
-                This is your Users Overview Report
+                {manageRoute ? "Manage your user's Profile here" : "This is your Users Overview Report"}
+
             </p>
         </div>
     )
