@@ -14,7 +14,7 @@ import { useCreateUsersModal } from '@/hooks/use-create-user-modal'
 const routes = [
     {
         href: "/",
-        label: "Overview"
+        label: "Home"
     },
     {
         href: "/add",
@@ -32,7 +32,7 @@ const Navigation = () => {
     const pathname = usePathname();
     const router = useRouter();
     const { open } = useCreateUsersModal();
-    const isMobile = useMedia("(max-width: 1024px)", false);
+    const isMobile = useMedia("(max-width: 1020px)", false);
 
     const onClick = (href: string) => {
         router.push(href);

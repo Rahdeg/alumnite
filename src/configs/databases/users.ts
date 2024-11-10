@@ -7,7 +7,7 @@ export const initialUsers: User[] = [
     email: "john.doe@example.com",
     role: Role.User,
     status: Status.Active,
-    profileImage: "https://via.placeholder.com/150",
+    profileImage: "/monkey.jpg",
   },
   {
     id: "2",
@@ -15,6 +15,6 @@ export const initialUsers: User[] = [
     email: "jane.smith@example.com",
     role: Role.Admin,
     status: Status.Inactive,
-    profileImage: "https://via.placeholder.com/150",
+    profileImage: "/monkey2.webp",
   },
 ];

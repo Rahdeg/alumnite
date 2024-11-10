@@ -4,26 +4,10 @@ import { Loader } from "lucide-react";
 import useUserStore from "@/features/store/use-store";
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
-import { FaUser, FaUserAltSlash, FaUserShield } from 'react-icons/fa';
-import { Role } from "@/configs/types";
-import { cn } from "@/lib/utils";
+import { cn, roleConfig } from "@/lib/utils";
+import * as Icons from 'react-icons/fa';
 
-const roleConfig = {
-    [Role.Admin]: {
-        icon: <FaUserShield />,
-        label: "Admin",
-    },
-    [Role.User]: {
 
-        icon: <FaUser />,
-        label: "User",
-    },
-    [Role.Guest]: {
-
-        icon: <FaUserAltSlash />,
-        label: "Guest",
-    },
-};
 
 
 interface ViewUserCardWrapperProps {
@@ -55,6 +39,8 @@ export const ViewUserCardWrapper = ({ id }: ViewUserCardWrapperProps) => {
     }
 
     const config = roleConfig[user.role];
+
+    const IconComponent = Icons[config.icon as keyof typeof Icons];
 
 
 
@@ -89,7 +75,7 @@ export const ViewUserCardWrapper = ({ id }: ViewUserCardWrapperProps) => {
                     </div>
                     <div className=" space-y-2">
                         <Badge variant={user.role} className=' w-20 p-1' >
-                            <p className="  mr-2"> {config.icon}</p>
+                            <p className="  mr-2"> <IconComponent /></p>
                             {user.role}
                         </Badge>
                         <div className=" flex items-center gap-x-2 text-sm font-medium">

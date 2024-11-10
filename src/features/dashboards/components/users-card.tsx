@@ -1,32 +1,17 @@
 import { Thumbnail } from '@/components/thumbnails'
 import { Badge } from '@/components/ui/badge';
 import UserAvatar from '@/components/user-avatar';
-import { Role, User } from '@/configs/types'
+import { User } from '@/configs/types'
 import { Loader } from 'lucide-react';
-import React from 'react'
-import { FaUser, FaUserAltSlash, FaUserShield } from 'react-icons/fa';
 import { useViewUserModal } from '../hooks/use-view-user-modal';
+import { roleConfig } from '@/lib/utils';
+import * as Icons from 'react-icons/fa';
+
 
 interface UserCardProps {
     data: User;
 }
 
-const roleConfig = {
-    [Role.Admin]: {
-        icon: <FaUserShield />,
-        label: "Admin",
-    },
-    [Role.User]: {
-
-        icon: <FaUser />,
-        label: "User",
-    },
-    [Role.Guest]: {
-
-        icon: <FaUserAltSlash />,
-        label: "Guest",
-    },
-};
 
 
 export const UserCard = ({ data }: UserCardProps) => {
@@ -34,6 +19,9 @@ export const UserCard = ({ data }: UserCardProps) => {
     const { open } = useViewUserModal();
 
     const config = roleConfig[data.role];
+
+    const IconComponent = Icons[config.icon as keyof typeof Icons];
+
 
     if (!data) {
         return (
@@ -70,7 +58,7 @@ export const UserCard = ({ data }: UserCardProps) => {
                     </div>
                 </div>
                 <Badge variant={data.role} className=' w-20 p-1' >
-                    <p className="  mr-2"> {config.icon}</p>
+                    <p className="  mr-2"> <IconComponent />  </p>
                     {data.role}
                 </Badge>
             </div>

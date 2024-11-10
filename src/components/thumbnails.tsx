@@ -1,7 +1,4 @@
 import Image from "next/image";
-
-import { Skeleton } from "@/components/ui/skeleton";
-
 import LiveBadge from "./live-badge";
 import UserAvatar from "./user-avatar";
 
@@ -56,14 +53,6 @@ export const Thumbnail = ({
                     <LiveBadge />
                 </div>
             )}
-        </div>
-    );
-};
-
-export const ThumbnailSkeleton = () => {
-    return (
-        <div className="group aspect-video relative rounded-xl cursor-pointer">
-            <Skeleton className="h-full w-full" />
         </div>
     );
 };

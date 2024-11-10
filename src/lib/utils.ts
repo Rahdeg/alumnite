@@ -1,3 +1,4 @@
+import { Role } from "@/configs/types";
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 
@@ -19,3 +20,18 @@ export function fileToBase64(file: File): Promise<string> {
     reader.onerror = (error) => reject(error);
   });
 }
+
+export const roleConfig = {
+  [Role.Admin]: {
+    icon: "FaUserShield",
+    label: "Admin",
+  },
+  [Role.User]: {
+    icon: "FaUser",
+    label: "User",
+  },
+  [Role.Guest]: {
+    icon: "FaUserAltSlash",
+    label: "Guest",
+  },
+};

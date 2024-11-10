@@ -5,28 +5,14 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { ColumnDef } from "@tanstack/react-table";
 import { ArrowUpDown, MoreHorizontal } from "lucide-react";
 import { UserAction } from "./user-actions";
-import { Role, User } from "@/configs/types";
-import { cn } from "@/lib/utils";
+import { User } from "@/configs/types";
+import { cn, roleConfig } from "@/lib/utils";
 import { AdminAvatar } from "./admin-avatar";
 import { Badge } from "@/components/ui/badge";
-import { FaUserShield, FaUser, FaUserAltSlash } from "react-icons/fa";
+import * as Icons from 'react-icons/fa';
 
-const roleConfig = {
-    [Role.Admin]: {
-        icon: <FaUserShield />,
-        label: "Admin",
-    },
-    [Role.User]: {
 
-        icon: <FaUser />,
-        label: "User",
-    },
-    [Role.Guest]: {
 
-        icon: <FaUserAltSlash />,
-        label: "Guest",
-    },
-};
 
 
 export const columns: ColumnDef<User>[] = [
@@ -96,9 +82,11 @@ export const columns: ColumnDef<User>[] = [
         cell: ({ row }) => {
             const role = row.original.role;
             const config = roleConfig[role];
+
+            const IconComponent = Icons[config.icon as keyof typeof Icons];
             return (
                 <Badge variant={role} >
-                    <p className="  mr-2"> {config.icon}</p>
+                    <p className="  mr-2"> <IconComponent /></p>
                     {role}
                 </Badge>
             )
