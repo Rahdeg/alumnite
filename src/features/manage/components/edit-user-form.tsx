@@ -14,7 +14,7 @@ import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import Image from "next/image";
 import { ImageIcon } from "lucide-react";
 import { cn, fileToBase64 } from "@/lib/utils";
-import { editUserSchema } from "../types";
+import { userSchema } from "../types";
 import useUserStore from "@/features/store/use-store";
 import { DottedSeparator } from "@/components/dotted-separator";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -37,15 +37,15 @@ export const EditUserForm = ({ onCancel, initialValues }: EditUserFormProps) => 
 
     const inputRef = useRef<HTMLInputElement>(null);
 
-    const form = useForm<z.infer<typeof editUserSchema>>({
-        resolver: zodResolver(editUserSchema),
+    const form = useForm<z.infer<typeof userSchema>>({
+        resolver: zodResolver(userSchema),
         defaultValues: {
             ...initialValues,
             status: initialValues.status === "Active" ? true : false
         }
     })
 
-    const onSubmit = async (values: z.infer<typeof editUserSchema>) => {
+    const onSubmit = async (values: z.infer<typeof userSchema>) => {
 
         setIsLoading(true);
 

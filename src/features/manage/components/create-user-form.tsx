@@ -14,7 +14,7 @@ import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import Image from "next/image";
 import { ImageIcon } from "lucide-react";
 import { cn, fileToBase64, generateId } from "@/lib/utils";
-import { createUserSchema } from "../types";
+import { userSchema } from "../types";
 import useUserStore from "@/features/store/use-store";
 import { DottedSeparator } from "@/components/dotted-separator";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -36,8 +36,8 @@ export const CreateUserForm = ({ onCancel }: CreateUserFormProps) => {
 
     const inputRef = useRef<HTMLInputElement>(null);
 
-    const form = useForm<z.infer<typeof createUserSchema>>({
-        resolver: zodResolver(createUserSchema),
+    const form = useForm<z.infer<typeof userSchema>>({
+        resolver: zodResolver(userSchema),
         defaultValues: {
             name: "",
             email: "",
@@ -47,13 +47,13 @@ export const CreateUserForm = ({ onCancel }: CreateUserFormProps) => {
         }
     })
 
-    const onSubmit = async (values: z.infer<typeof createUserSchema>) => {
+    const onSubmit = async (values: z.infer<typeof userSchema>) => {
 
         setIsLoading(true);
 
         let image;
 
-        if (values.profileImage) {
+        if (values.profileImage instanceof File) {
             const base64Image = await fileToBase64(values.profileImage);
             image = base64Image;
         }
@@ -192,7 +192,7 @@ export const CreateUserForm = ({ onCancel }: CreateUserFormProps) => {
                                                         </Button>
                                                     )
                                                 }
-
+                                                <FormMessage />
                                             </div>
                                         </div>
                                     </div>
